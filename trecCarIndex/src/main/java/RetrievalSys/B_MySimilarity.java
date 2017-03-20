@@ -1,4 +1,4 @@
-package Lucene;
+package RetrievalSys;
 
 
 
@@ -12,9 +12,9 @@ import org.apache.lucene.search.TermStatistics;
 import org.apache.lucene.search.similarities.Similarity;
 import org.apache.lucene.util.BytesRef;
 
-public class MySimilarity extends Similarity {
+public class B_MySimilarity extends Similarity {
     private Similarity sim = null;
-    public MySimilarity(Similarity sim) {
+    public B_MySimilarity(Similarity sim) {
       this.sim = sim;
     }
     @Override

@@ -1,11 +1,11 @@
 
-package evaluation;
+package Evaluation;
 
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.Set;
 
-public class metrics {
+public class Metrics {
 	
 
 	ArrayList <String> ranklist;
@@ -19,7 +19,7 @@ public class metrics {
 	ArrayList<ArrayList<Double>> metricOutput;
 	int top_k;
 	int num_rel_ret;
-	public metrics (ArrayList<String> ranklist, String query, Map<String, Set<String> >truth, int map_k, int pr_k){
+	public Metrics (ArrayList<String> ranklist, String query, Map<String, Set<String> >truth, int map_k, int pr_k){
 
 		this.ranklist =ranklist;
 		this.truth = truth;	

@@ -12,18 +12,19 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-public class readfile {
+public class ReadTruthFile {
 	 String data_path;
 	 String data_result;
 	 String data_truth;
 	 static Map<String, Set<String> >truth;
+	 Map<String, ArrayList<String>> ranklistByquery;
 	 ArrayList<Double> aver_eval;
 	
 //	@SuppressWarnings("static-access")
-	public readfile(String data_path, String data_result, String data_truth) throws NumberFormatException, IOException{
-		this.data_path=data_path;
-		this.data_result=data_result;	
+	public ReadTruthFile(String data_path, String data_truth, Map<String, ArrayList<String>> ranklistByquery) throws NumberFormatException, IOException{
+		this.data_path=data_path;			
 		this.data_truth= data_truth;
+		this.ranklistByquery=ranklistByquery;
 		System.out.println(this.data_result);
 
 		Map<String, Set<String> >groundtruth = new HashMap<String, Set<String>>();
@@ -49,28 +50,9 @@ public class readfile {
 		
 		br.close();	
 		ArrayList<Double>ave_eval = new ArrayList<Double>();
-		Map<String, ArrayList<String>> ranklistByquery = new HashMap<String, ArrayList<String>>();
+	
 		
-		String filename2 = data_path+data_result;
-		String line2;
-		InputStream is2 = new FileInputStream(new File(filename2));
-		BufferedReader br2 = new BufferedReader(new InputStreamReader(is2));
 
-		
-        
-		while ((line2 =br2.readLine()) != null){
-				String[] parsedLine2 = line2.split(" ");
-				String queryId = parsedLine2[0];
-				String docId2 = parsedLine2[2];
-				if(ranklistByquery.containsKey(queryId)){
-					ranklistByquery.get(queryId).add(docId2);
-				}else{
-					ArrayList<String> ranklist= new ArrayList<String>();
-					ranklist.add(docId2);
-					ranklistByquery.put(queryId, ranklist);
-				}
-			}
-		br2.close();	
 			
 
 		int num_of_query = ranklistByquery.keySet().size();		

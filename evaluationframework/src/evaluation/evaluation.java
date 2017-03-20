@@ -11,8 +11,8 @@ public class evaluation {
 		String dataTruth1 = "all.test200.cbor.hierarchical.qrels";
 		String dataResult1 = "test200-mock1.run";
 		String dataPath = "data/";
-		
-		readfile newfile = new readfile(dataPath, dataResult1, dataTruth1);
+		ReadMockResult searchResult =new  ReadMockResult(dataPath, dataResult1);
+		ReadTruthFile newfile = new ReadTruthFile(dataPath, dataTruth1,searchResult.getSearchResult());
 		newfile.printEval();	
 	}
 }
